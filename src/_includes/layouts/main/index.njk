@@ -1,0 +1,45 @@
+{%- pageStart page -%}
+{%- set mainCss = "/_includes/layouts/main/style.css" -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="confboxAsset(/assets/logo.png)">
+    <link rel="preload" as="font" crossorigin href="confboxAsset(/assets/open-sans/regular/latin.woff2)">
+    <link rel="preload" as="font" crossorigin href="confboxAsset(/assets/open-sans/bold/latin.woff2)">
+    {% css page, mainCss %}
+    {% if title %}
+      <title>{{title}} - {{page.title}}</title>
+    {% else %}
+      <title>{{page.title}}</title>
+    {% endif %}
+
+    <meta property="og:type" content="website">
+
+    {% if title %}
+      <meta property="og:title" content="{{title}} - {{page.title}}">
+      <meta name="twitter:title" content="{{title}} - {{page.title}}">
+    {% else %}
+      <meta property="og:title" content="{{page.title}}">
+      <meta name="twitter:title" content="{{page.title}}">
+    {% endif %}
+
+    {% if description %}
+      <meta name="description" content="{{description}}">
+      <meta property="og:description" content="{{description}}">
+      <meta name="twitter:description" content="{{description}}">
+    {% endif %}
+  </head>
+  <body>
+    {% include 'header/index.njk' %}
+    {% block content %}{{ content | safe }}{% endblock %}
+    {% include 'footer/index.njk' %}
+    <!-- Analytics -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-xxxxxx-x', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+  </body>
+</html>
