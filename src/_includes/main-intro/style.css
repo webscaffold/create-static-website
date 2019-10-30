@@ -1,8 +1,17 @@
 .root {
-	border: 1px solid #333333;
+  overflow: hidden;
+  position: relative;
+  line-height: normal;
+  background: var(--offwhite);
+  padding: 4.4rem var(--side-margin);
 }
 
-.hello-world {
-	text-align: center;
-	color: rebeccapurple;
+.conf-detail {
+  text-align: center;
+  color: var(--darkgrey);
+  position: relative;
+
+  @media (min-width: 720px) {
+    text-align: left;
+  }
 }

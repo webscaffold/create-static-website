@@ -1,0 +1,19 @@
+{% extends 'layouts/main/index.njk' %}
+
+{% block content %}
+  {%- set moduleCSS = "/_includes/module.css" -%}
+  {% css page, moduleCSS %}
+  {%- set css = "/_includes/content.css" -%}
+  {% css page, css %}
+  <div class="{% className moduleCSS, 'root-alt' %}">
+    <header class="{% className css, 'heading' %}">
+      <h1 class="{% className moduleCSS, 'heading' %}">
+        {% headingSlug title %}
+      </h1>
+      <div class="{% className css, 'squiggles' %}"></div>
+    </header>
+    <section class="{% className css, 'content-area' %}">
+      {% block innerContent %}{{ content | safe }}{% endblock %}
+    </section>
+  </div>
+{% endblock %}

@@ -10,16 +10,12 @@ module.exports = {
 			getJSON: function(cssFileName, json, outputFileName) {
 				const parsedPath = path.parse(outputFileName);
 				mkdirp.sync(parsedPath.dir);
-				fs.writeFileSync(
-					outputFileName + '.json',
-					JSON.stringify(json)
-				);
+				fs.writeFileSync(outputFileName + '.json', JSON.stringify(json));
 			}
 		}),
-		// TODO: Replace
-		// require('cssnano')({
-		// 	// Avoid normalizeUrl, else it breaks confboxAsset()
-		// 	preset: ['default', { normalizeUrl: false }]
-		// })
+		require('cssnano')({
+			// Avoid normalizeUrl, else it breaks siteAsset()
+			preset: ['default', { normalizeUrl: false }]
+		})
 	]
 };

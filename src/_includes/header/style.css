@@ -1,0 +1,32 @@
+.root {
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 1px;
+}
+
+.title {
+  margin: 4.6em 0 3.8em;
+  text-decoration: none;
+  display: block;
+}
+
+.logo-container {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.extra-links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 3.2em 0;
+
+  & a {
+    font-family: roboto, sans-serif;
+    line-height: normal;
+    font-size: 0.8em;
+    margin: 0.5em 0.55em;
+    padding: 1em 0;
+  }
+}

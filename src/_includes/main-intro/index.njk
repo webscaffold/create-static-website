@@ -1,5 +1,12 @@
+{%- set css = "/_includes/main-intro/style.css" -%}
+{% css page, css %}
+{%- set utilsCSS = "/_includes/utils.css" -%}
+{% css page, utilsCSS %}
+
 <div class="{% className css, 'root' %}">
-	<div class="{% className css, 'hello-world' %}">
-		<p>Hello World!</p>
-	</div>
+  <div class="{% className css, 'conf-detail' %}">
+	<h1>Hello World</h1>
+    <p>
+      <span>{{conf.venue.name}}</span>
+    </p>
 </div>

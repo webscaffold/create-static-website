@@ -1,0 +1,70 @@
+.root,
+.root-alt {
+  --vertical-padding: 2.4rem;
+  background-color: var(--white);
+  padding: var(--vertical-padding) var(--side-margin);
+
+  @media (min-width: 1280px) {
+    --vertical-padding: 4.5rem;
+  }
+}
+
+.root-alt {
+  background-color: var(--offwhite);
+}
+
+.heading {
+  font: bold 2rem 'Google Sans', roboto, sans-serif;
+  color: var(--grey);
+  text-align: center;
+  position: relative;
+  margin-top: 0;
+
+  @media (min-width: 480px) {
+    text-transform: lowercase;
+    text-align: left;
+    white-space: nowrap;
+
+    &::before {
+      content: 'page://';
+      color: var(--lightgrey);
+    }
+  }
+}
+
+.slug-dash {
+  &:before {
+    content: ' ';
+  }
+  @media (min-width: 480px) {
+    &:before {
+      content: '-';
+    }
+  }
+}
+
+.heading-split {
+  margin: 1.66rem 0;
+  text-align: center;
+
+  @media (min-width: 480px) {
+    text-align: left;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    & > :first-child {
+      flex: 1;
+      margin-right: 0.5em;
+    }
+
+    & > * {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.heading-link {
+  display: block;
+}

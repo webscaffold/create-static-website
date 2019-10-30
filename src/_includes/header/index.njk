@@ -1,0 +1,17 @@
+{% set utilsCSS = "/_includes/utils.css" %}
+{% css page, utilsCSS %}
+{% set css = "/_includes/header/style.css" %}
+{% css page, css %}
+
+<div class="{% className css, 'root' %}">
+  <a class="{% className css, 'title' %}" href="{{conf.path}}">
+    <div class="{% className css, 'logo-container' %}">
+      <div class="{% className utilsCSS, 'aspect-ratio' %}" style="--aspect-ratio: 1">
+        <img class="{% className utilsCSS, 'media-fill' %}" src="siteAsset(/assets/logo.svg)" alt="Logo">
+      </div>
+    </div>
+  </a>
+  <div class="{% className css, 'extra-links' %}">
+    <a href="{{conf.path}}about/">About</a>
+  </div>
+</div>

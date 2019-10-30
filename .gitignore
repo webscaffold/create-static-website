@@ -7,8 +7,9 @@ node_modules
 npm-debug.log
 
 # Build, cache
-/build
-build-tmp
+build
+/.build-tmp
+/.netlify
 .cache
 .esm-cache
 .eslintcache
@@ -26,5 +27,3 @@ coverage
 # Env settings / local env files
 .env.local
 .env.*.local
-
-devsummit-master

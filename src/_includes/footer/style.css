@@ -1,0 +1,24 @@
+.root {
+	--icon-size: 1.6em;
+	padding-bottom: 0;
+	padding-top: 6rem;
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	a:hover {
+		color: var(--darkgrey);
+		text-decoration: underline;
+		text-decoration-color: var(--blue);
+	}
+}
+
+.footer-nav {
+	grid-area: nav;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 4rem;
+}

@@ -1,0 +1,9 @@
+{%- set moduleCSS = "/_includes/module.css" -%}
+{% css page, moduleCSS %}
+{%- set css = "/_includes/404/style.css" -%}
+{% css page, css %}
+<div class="{% className moduleCSS, 'root' %} {% className css, 'root' %}">
+  <div class="{% className css, 'y-wrapper' %}">
+    <h1 class="{% className css, 'heading' %}">4ö4</h1>
+  </div>
+</div>

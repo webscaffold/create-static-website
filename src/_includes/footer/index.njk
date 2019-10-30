@@ -1,0 +1,11 @@
+{%- set moduleCSS = "/_includes/module.css" -%}
+{% css page, moduleCSS %}
+{%- set css = "/_includes/footer/style.css" -%}
+{% css page, css %}
+
+<div class="{% className moduleCSS, 'root' %} {% className css, 'root' %}">
+
+  <nav class="{% className css, 'footer-nav' %}">
+    <a href="{{conf.path}}about/">About</a>
+  </nav>
+</div>

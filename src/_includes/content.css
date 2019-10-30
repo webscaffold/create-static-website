@@ -1,0 +1,114 @@
+.content-area {
+  color: var(--offblack);
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--darkgrey);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  li,
+  p {
+    max-width: 60ch;
+  }
+}
+
+.box {
+  margin: 0 calc(-1 * var(--side-margin));
+  border-radius: 0.74rem;
+  background: var(--white);
+  padding: 0.3rem var(--side-margin);
+  border-top: 1px solid var(--lessdarkoffwhite);
+  border-bottom: 1px solid var(--lessdarkoffwhite);
+
+  @media (min-width: 720px) {
+    box-shadow: var(--lg-hueless-shadow);
+    border: 1px solid var(--lessdarkoffwhite);
+    margin: 0;
+    padding: 0.3rem 1.5rem;
+  }
+}
+
+:root {
+  /* Hide squiggle by default. Page's CSS can overwrite this value */
+  --squiggle-display: none;
+}
+
+.squiggles {
+  position: relative;
+  display: var(--squiggle-display);
+  flex-grow: 1;
+  @media (min-width: 1020px) {
+    background: var(--squiggle-url) no-repeat center center;
+    background-size: contain;
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 50%;
+      width: 100%;
+      float: left;
+    }
+  }
+}
+
+.heading {
+  margin-top: 0.6rem;
+
+  @media (min-width: 1020px) {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-column-gap: 4rem;
+    align-items: center;
+  }
+}
+
+.category {
+  @media (min-width: 1020px) {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-column-gap: 4rem;
+    margin-bottom: 6rem;
+  }
+}
+
+.category-meta {
+  & > blockquote {
+    border-left: 0.25rem solid var(--blue);
+    margin: 0;
+    padding-left: 1rem;
+    font-weight: 500;
+  }
+}
+
+.category-heading {
+  color: var(--darkgrey);
+  grid-column: 1 / span 2;
+}
+
+.aside-content {
+  & > :first-child {
+    margin-top: 0;
+  }
+}
+
+.section-heading {
+  font-weight: bold;
+  font-size: 1.14rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.75;
+
+  & + .markdown > p:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.section .divider {
+  border: none;
+  border-top: 1px solid var(--darkoffwhite);
+  margin: 2rem 0;
+}

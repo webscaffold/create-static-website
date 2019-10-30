@@ -1,12 +1,55 @@
+const fs = require('fs');
 const nunjucks = require('nunjucks');
-const ModularClassName = require('./lib/modular-class-name');
+const { path: sitePath } = require('./site.config');
+
+class ModularClassName {
+	constructor(output) {
+		this._output = output;
+		this._cache = new Map();
+	}
+	_getData(css) {
+		if (!css.startsWith('/')) {
+			throw new TypeError('CSS path must be absolute (starts with /)');
+		}
+
+		if (!this._cache.has(css)) {
+			const file = this._output + css + '.json';
+			const json = fs.readFileSync(file, {
+				encoding: 'utf8'
+			});
+			this._cache.set(css, JSON.parse(json));
+		}
+
+		return this._cache.get(css);
+	}
+	getClassName(css, className) {
+		const data = this._getData(css);
+
+		if (!(className in data)) {
+			throw new TypeError(`Cannot find className "${className}" in ${css}`);
+		}
+
+		return data[className];
+	}
+	getAllCamelCased(css) {
+		const output = {};
+		const data = this._getData(css);
+
+		for (const [key, val] of Object.entries(data)) {
+			output[key.replace(/-\w/g, (match) => match[1].toUpperCase())] = val;
+		}
+
+		return output;
+	}
+}
 
 module.exports = function(eleventyConfig) {
 	const config = {
 		dir: {
 			input: 'src',
 			output: '.build-tmp'
-		}
+		},
+		pathPrefix: sitePath
 	};
 
 	const modCSS = new ModularClassName(config.dir.output);
@@ -35,17 +78,13 @@ module.exports = function(eleventyConfig) {
 		if (set.has(url)) return '';
 		set.add(url);
 
-		return new nunjucks.runtime.SafeString(`<style>confboxInline(confboxAsset(${url}))</style>`);
+		return new nunjucks.runtime.SafeString(`<style>siteInline(siteAsset(${url}))</style>`);
 	});
 
 	eleventyConfig.addShortcode('headingSlug', (str) => {
 		return new nunjucks.runtime.SafeString(
 			str.replace(/\s/g, () => `<span class=${modCSS.getClassName('/_includes/module.css', 'slug-dash')}></span>`)
 		);
-	});
-
-	eleventyConfig.addShortcode('idify', (str) => {
-		return str.toLowerCase().replace(/\s/g, '-');
 	});
 
 	/** Dump JSON data in a way that's safe to be output in HTML */
@@ -56,9 +95,10 @@ module.exports = function(eleventyConfig) {
 			.replace(/<\/script/g, '<\\/script');
 	});
 
-	// eleventyConfig.addCollection('pages', (collection) => {
-	// 	return buildScheduleData(collection.getFilteredByTag('session'), collection.getFilteredByTag('speakers'));
-	// });
+	/** Get an ISO 8601 version of a date */
+	eleventyConfig.addShortcode('isoDate', (timestamp) => {
+		return new Date(timestamp.valueOf()).toISOString();
+	});
 
 	return config;
 };
