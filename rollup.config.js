@@ -12,8 +12,8 @@ import httpServer from './lib/http-server';
 import buildStartSequencePlugin from './lib/build-start-sequence-plugin';
 import classnamePlugin from './lib/classname-plugin';
 import assetPlugin from './lib/asset-plugin';
-import confboxConfigPlugin from './lib/confbox-config-plugin';
-import copy from './lib/copy';
+// import confboxConfigPlugin from './lib/confbox-config-plugin';
+// import copy from './lib/copy';
 
 export default async function({ watch }) {
 	await Promise.all([postCSSBuild('src/**/*.css', '.build-tmp', { watch })]);

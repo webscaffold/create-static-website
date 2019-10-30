@@ -1,0 +1,13 @@
+{%- set moduleCSS = "/_includes/module.css" -%}
+{% css page, moduleCSS %}
+{%- set css = "/_includes/footer/style.css" -%}
+{% css page, css %}
+
+<div class="{% className moduleCSS, 'root' %} {% className css, 'root' %}">
+  <nav class="{% className css, 'footer-nav' %}">
+    Footer
+	<a href="https://github.com/" rel="noopener noreferrer" target="_blank">
+		<span class="{% className css, 'icon-mask' %}" style="--icon: url(confboxAsset(/_includes/footer/assets/github.svg)"></span> Source Code
+	</a>
+  </nav>
+</div>

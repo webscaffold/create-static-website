@@ -1,0 +1,24 @@
+._root_1evs7_1 {
+  --icon-size: 1.6em;
+  padding-bottom: 0;
+  padding-top: 6rem;
+}
+
+  ._root_1evs7_1 ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ._root_1evs7_1 a:hover {
+    color: var(--darkgrey);
+    text-decoration: underline;
+    text-decoration-color: var(--blue);
+  }
+
+  ._footer-nav_1evs7_18 {
+	color: burlywood;
+}
+
+  ._icon-mask_1evs7_22 {
+	width: 20px;
+}

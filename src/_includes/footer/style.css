@@ -1,0 +1,24 @@
+.root {
+  --icon-size: 1.6em;
+  padding-bottom: 0;
+  padding-top: 6rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  a:hover {
+    color: var(--darkgrey);
+    text-decoration: underline;
+    text-decoration-color: var(--blue);
+  }
+}
+
+.footer-nav {
+	color: burlywood;
+}
+
+.icon-mask {
+	width: 20px;
+}

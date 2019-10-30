@@ -1,0 +1,12 @@
+{% set utilsCSS = "/_includes/utils.css" %}
+{% css page, utilsCSS %}
+{% set css = "/_includes/header/style.css" %}
+{% css page, css %}
+
+<div class="{% className css, 'root' %}">
+  <a class="{% className css, 'title' %}" href="{{conf.path}}">
+    <div class="{% className utilsCSS, 'aspect-ratio' %}" style="--aspect-ratio: 1">
+        Header
+    </div>
+  </a>
+</div>
