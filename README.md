@@ -68,3 +68,5 @@ In templates and CSS, references assets via `siteAsset('/path/to/asset.jpg')`. T
 ```
 
 Assets ending `.js` will be bundled together using Rollup.
+
+Copy pasted and streamlined from here https://github.com/GoogleChrome/devsummit Thank you all for sharing this.
