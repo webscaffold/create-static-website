@@ -1,0 +1,32 @@
+{
+	"name": "Website name goes here",
+	"short_name": "RM 2019",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#f8f9fa",
+	"theme_color": "#f8f9fa",
+	"icons": [
+	  {
+		"src": "siteAsset(/assets/pwa.png)",
+		"type": "image/png",
+		"sizes": "192x192"
+	  },
+	  {
+		"src": "siteAsset(/assets/pwa-large.png)",
+		"type": "image/png",
+		"sizes": "1024x1024"
+	  },
+	  {
+		"src": "siteAsset(/assets/pwa.png)",
+		"type": "image/png",
+		"sizes": "192x192",
+		"purpose": "maskable"
+	  },
+	  {
+		"src": "siteAsset(/assets/pwa-large.png)",
+		"type": "image/png",
+		"sizes": "1024x1024",
+		"purpose": "maskable"
+	  }
+	]
+  }

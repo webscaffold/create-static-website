@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="siteAsset(/assets/logo.png)">
+	<link rel="manifest" href="siteAsset(/manifest.json)">
     {# <link rel="preload" as="font" crossorigin href="siteAsset(/assets/open-sans/regular/latin.woff2)">
     <link rel="preload" as="font" crossorigin href="siteAsset(/assets/open-sans/bold/latin.woff2)"> #}
     {% css page, mainCss %}
@@ -44,5 +45,6 @@
     ga('create', 'UA-xxxxxxx-x', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
+  <script type="module" src="siteAsset(/_includes/layouts/main/offline.js)"></script>
   </body>
 </html>

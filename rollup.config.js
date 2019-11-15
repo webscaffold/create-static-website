@@ -12,6 +12,7 @@ import httpServer from './lib/http-server';
 import buildStartSequencePlugin from './lib/build-start-sequence-plugin';
 import classnamePlugin from './lib/classname-plugin';
 import assetPlugin from './lib/asset-plugin';
+import swPlugin from './lib/sw-plugin';
 
 const siteConfig = require('./site.config.js');
 
@@ -23,7 +24,8 @@ export default async function({ watch }) {
 
 	return {
 		input: {
-			'nuke-sw': 'src/nuke-sw.js'
+			'nuke-sw': 'src/nuke-sw.js',
+			sw: 'src/sw.js',
 		},
 		output: {
 			dir: 'build' + siteConfig.path,
@@ -51,6 +53,7 @@ export default async function({ watch }) {
 			assetPlugin(),
 			classnamePlugin('.build-tmp'),
 			terser({ ecma: 8, module: true }),
+			swPlugin(),
 			{
 				// This is a dirty hack to copy /devsummit/404.html to /404.html, which is where
 				// Firebase hosting will look for the 404 page.

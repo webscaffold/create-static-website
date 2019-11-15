@@ -1,14 +1,12 @@
-async function run() {
-	// Is this actually being executed in a ServiceWorker?
-	if (!(self instanceof ServiceWorkerGlobalScope)) {
-		return;
-	}
-	// Nuke the service worker.
-	await self.registration.unregister();
-
-	// Reload all open pages.
-	clients.matchAll({ includeUncontrolled: true }).then((clients) => {
-		clients.forEach((client) => client.navigate('/'));
+if (self instanceof ServiceWorkerGlobalScope) {
+	addEventListener('install', () => {
+		skipWaiting();
+	});
+	addEventListener('activate', async () => {
+		await self.registration.unregister();
+		const allClients = await clients.matchAll({
+			includeUncontrolled: true
+		});
+		for (const client of allClients) client.navigate('/');
 	});
 }
-run();
