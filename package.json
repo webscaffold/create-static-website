@@ -28,7 +28,7 @@
     "postcss": "^7.0.32",
     "postcss-cli": "^7.1.1",
     "postcss-import": "^12.0.1",
-    "postcss-modules": "^2.0.0",
+    "postcss-modules": "^3.2.2",
     "postcss-nested": "^4.2.1",
     "prettier": "^2.0.5",
     "require-from-string": "^2.0.2",
